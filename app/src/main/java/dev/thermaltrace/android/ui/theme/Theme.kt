@@ -10,7 +10,7 @@ import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.withStyle
 
-/** thermaltrace.dev wordmark: gray "Thermal" + orange "Trace" */
+/** probeharbor.dev wordmark: gray "Thermal" + orange "Trace" */
 val BrandThermal = Color(0xFFC5CBD3)
 val BrandTrace = Color(0xFFE85500)
 val BrandAccent = Color(0xFFFF9E4A)

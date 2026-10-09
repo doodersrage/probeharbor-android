@@ -20,5 +20,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "ThermalTrace"
+rootProject.name = "ProbeHarbor"
 include(":app")

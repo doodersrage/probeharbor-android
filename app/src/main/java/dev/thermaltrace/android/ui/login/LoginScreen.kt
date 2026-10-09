@@ -57,7 +57,7 @@ fun LoginScreen(
         Spacer(Modifier.height(8.dp))
         Text(
             text = when (state.mode) {
-                LoginMode.SignIn -> "Sign in to thermaltrace.dev"
+                LoginMode.SignIn -> "Sign in to probeharbor.dev"
                 LoginMode.Register -> "Create your account"
                 LoginMode.ForgotPassword -> "Reset your password"
             },

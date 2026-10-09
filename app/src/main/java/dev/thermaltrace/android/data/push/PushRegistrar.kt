@@ -63,7 +63,7 @@ class PushRegistrar(
         val manager = context.getSystemService(NotificationManager::class.java) ?: return
         val channel = NotificationChannel(
             CHANNEL_ID,
-            "ThermalTrace alerts",
+            "ProbeHarbor alerts",
             NotificationManager.IMPORTANCE_HIGH,
         ).apply {
             description = "Freeze, humidity, outage, and other probe alerts"

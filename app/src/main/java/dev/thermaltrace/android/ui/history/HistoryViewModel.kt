@@ -92,7 +92,7 @@ class HistoryViewModel(
     fun downloadClaimsPack() {
         if (!_uiState.value.canUseClaimsPack) {
             _uiState.update {
-                it.copy(claimsMessage = "Claims pack requires ThermalTrace Pro — upgrade on thermaltrace.dev")
+                it.copy(claimsMessage = "Claims pack requires ProbeHarbor Pro — upgrade on probeharbor.dev")
             }
             return
         }
@@ -128,7 +128,7 @@ class HistoryViewModel(
     fun openEmailDialog() {
         if (!_uiState.value.canUseClaimsPack) {
             _uiState.update {
-                it.copy(claimsMessage = "Claims pack requires ThermalTrace Pro — upgrade on thermaltrace.dev")
+                it.copy(claimsMessage = "Claims pack requires ProbeHarbor Pro — upgrade on probeharbor.dev")
             }
             return
         }

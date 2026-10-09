@@ -30,7 +30,9 @@ android {
     compileSdk = 36
 
     defaultConfig {
-        applicationId = "dev.thermaltrace.android"
+        // Renamed from dev.thermaltrace.android (2026-10). The Kotlin namespace
+        // above stays put; only the published application ID changed.
+        applicationId = "dev.probeharbor.android"
         minSdk = 26
         targetSdk = 36
         versionCode = 4
@@ -43,7 +45,7 @@ android {
         buildConfigField(
             "String",
             "THERMALTRACE_BASE_URL",
-            "\"${localProp("thermaltrace.baseUrl", "https://thermaltrace.dev")}\"",
+            "\"${localProp("thermaltrace.baseUrl", "https://probeharbor.dev")}\"",
         )
         buildConfigField("String", "FIREBASE_PROJECT_ID", "\"${localProp("firebase.projectId")}\"")
         buildConfigField(

@@ -86,7 +86,7 @@ class AccountViewModel(
 
     fun referralShareText(): String? {
         val referral = _uiState.value.referral ?: return null
-        return "Try ThermalTrace — freeze and leak monitoring for vacant homes. " +
+        return "Try ProbeHarbor — freeze and leak monitoring for vacant homes. " +
             "Sign up with my link for ${referral.bonusTrialDays} bonus trial days: ${referral.registerUrl}"
     }
 

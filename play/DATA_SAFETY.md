@@ -2,7 +2,7 @@
 
 Use these when filling **App content → Data safety**. Adjust if your product practices change.
 
-Privacy policy: https://thermaltrace.dev/privacy
+Privacy policy: https://probeharbor.dev/privacy
 
 ## Overview
 
@@ -54,11 +54,11 @@ Until Crashlytics is added: you can say you do **not** collect crash logs in-app
 ### Device or other IDs
 | Type | Collected | Shared | Purpose | Optional? |
 |------|-----------|--------|---------|-----------|
-| Device or other IDs | Yes — FCM registration token when push is enabled | No* (stored on ThermalTrace servers to deliver alerts) | App functionality / Developer communications (push alerts) | Optional (user enables push) |
+| Device or other IDs | Yes — FCM registration token when push is enabled | No* (stored on ProbeHarbor servers to deliver alerts) | App functionality / Developer communications (push alerts) | Optional (user enables push) |
 
 ## Data handling specifics
 
-- **Ephemeral processing only?** No — account and readings are stored on ThermalTrace servers.
+- **Ephemeral processing only?** No — account and readings are stored on ProbeHarbor servers.
 - **Data deletion:** Yes — account deletion removes alert settings and sole-owned households (see privacy policy).
 - **Sensitive data:** Temperature/humidity readings are associated with the user’s household/devices (home monitoring). Treat as app functionality data, not “health” unless Play’s form forces a health category (prefer **App functionality** / **Account management**).
 
@@ -73,7 +73,7 @@ Until Crashlytics is added: you can say you do **not** collect crash logs in-app
 
 | Permission | Why |
 |------------|-----|
-| `INTERNET` | Sign-in and load readings/settings from thermaltrace.dev |
+| `INTERNET` | Sign-in and load readings/settings from probeharbor.dev |
 | `POST_NOTIFICATIONS` | Optional freeze/alert push notifications (Android 13+) |
 
 No precise location, camera, mic, SMS, or contacts.

@@ -144,7 +144,7 @@ fun DevicesScreen(viewModel: DevicesViewModel) {
                 if (state.devices.isEmpty()) {
                     item {
                         Text(
-                            "No devices yet. Create them on thermaltrace.dev.",
+                            "No devices yet. Create them on probeharbor.dev.",
                             color = MaterialTheme.colorScheme.onSurfaceVariant,
                         )
                     }

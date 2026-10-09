@@ -138,7 +138,8 @@ class AuthRepository(
 
     fun oauthStartUrl(provider: String): String {
         val base = BuildConfig.THERMALTRACE_BASE_URL.trimEnd('/')
-        return "$base/api/auth/mobile/start?provider=$provider"
+        // app= tells the server which package to hand the session back to.
+        return "$base/api/auth/mobile/start?provider=$provider&app=${BuildConfig.APPLICATION_ID}"
     }
 
     suspend fun exchangeMobileOAuth(exchangeToken: String): Result<AuthOutcome> = runCatching {

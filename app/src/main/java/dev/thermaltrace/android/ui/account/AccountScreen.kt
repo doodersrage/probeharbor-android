@@ -141,7 +141,7 @@ fun AccountScreen(
                     )
                 } else {
                     Text(
-                        "Registers this phone with thermaltrace.dev. Requires Pro and the Push channel enabled under Alerts.",
+                        "Registers this phone with probeharbor.dev. Requires Pro and the Push channel enabled under Alerts.",
                         style = MaterialTheme.typography.bodySmall,
                         color = MaterialTheme.colorScheme.onSurfaceVariant,
                     )
@@ -238,7 +238,7 @@ fun AccountScreen(
                 OutlinedButton(
                     onClick = {
                         context.startActivity(
-                            Intent(Intent.ACTION_VIEW, Uri.parse("https://thermaltrace.dev/dashboard/temperature")),
+                            Intent(Intent.ACTION_VIEW, Uri.parse("https://probeharbor.dev/dashboard/temperature")),
                         )
                     },
                     modifier = Modifier.fillMaxWidth(),
@@ -250,7 +250,7 @@ fun AccountScreen(
                 OutlinedButton(
                     onClick = {
                         context.startActivity(
-                            Intent(Intent.ACTION_VIEW, Uri.parse("https://thermaltrace.dev/dashboard/settings")),
+                            Intent(Intent.ACTION_VIEW, Uri.parse("https://probeharbor.dev/dashboard/settings")),
                         )
                     },
                     modifier = Modifier.fillMaxWidth(),

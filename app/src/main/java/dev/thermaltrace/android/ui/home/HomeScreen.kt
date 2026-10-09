@@ -94,7 +94,7 @@ fun HomeScreen(viewModel: HomeViewModel) {
                         )
                         Text(
                             text = readings?.updatedAt?.let { "Updated $it" }
-                                ?: "From thermaltrace.dev",
+                                ?: "From probeharbor.dev",
                             style = MaterialTheme.typography.bodySmall,
                             color = MaterialTheme.colorScheme.onSurfaceVariant,
                         )
@@ -229,7 +229,7 @@ fun HomeScreen(viewModel: HomeViewModel) {
                     if (sensors.isEmpty() && state.error == null) {
                         item {
                             Text(
-                                text = "No sensors yet. Add devices on thermaltrace.dev.",
+                                text = "No sensors yet. Add devices on probeharbor.dev.",
                                 color = MaterialTheme.colorScheme.onSurfaceVariant,
                             )
                         }

@@ -12,9 +12,10 @@ object DeepLinks {
     const val PORTFOLIO = "portfolio"
     const val MFA = "mfa"
 
-    const val OAUTH_SCHEME = "dev.thermaltrace.android"
+    /** Matches applicationId; the server routes the sign-in return by it. */
+    const val OAUTH_SCHEME = "dev.probeharbor.android"
     const val OAUTH_HOST = "oauth"
-    const val OAUTH_HTTPS_HOST = "thermaltrace.dev"
+    const val OAUTH_HTTPS_HOST = "probeharbor.dev"
     const val OAUTH_HTTPS_PATH = "/app/oauth"
     const val OAUTH_EXCHANGE_PARAM = "exchange"
 }

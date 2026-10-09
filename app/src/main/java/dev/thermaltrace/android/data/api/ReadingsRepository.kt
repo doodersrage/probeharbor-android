@@ -14,6 +14,6 @@ class ReadingsRepository(
             if (!response.isSuccessful) {
                 error("HTTP ${response.code()}: ${response.errorBody()?.string().orEmpty()}")
             }
-            response.body() ?: error("Empty response from ThermalTrace")
+            response.body() ?: error("Empty response from ProbeHarbor")
         }
 }

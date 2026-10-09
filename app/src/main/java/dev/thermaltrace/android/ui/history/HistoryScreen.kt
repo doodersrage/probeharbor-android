@@ -171,7 +171,7 @@ fun HistoryScreen(viewModel: HistoryViewModel) {
                         if (state.canUseClaimsPack) {
                             "Printable HTML for the selected window (Pro). Open and Print → Save as PDF."
                         } else {
-                            "Claims pack is a Pro feature. Upgrade on thermaltrace.dev to download or email a printable pack."
+                            "Claims pack is a Pro feature. Upgrade on probeharbor.dev to download or email a printable pack."
                         },
                         style = MaterialTheme.typography.bodySmall,
                         color = MaterialTheme.colorScheme.onSurfaceVariant,

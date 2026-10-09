@@ -2,26 +2,26 @@
 
 Paste these into Play Console when verification finishes. Package name must be:
 
-`dev.thermaltrace.android`
+`dev.probeharbor.android`
 
-Privacy policy URL: https://thermaltrace.dev/privacy  
-Terms: https://thermaltrace.dev/terms  
-Support / contact: https://thermaltrace.dev/contact  
-App website: https://thermaltrace.dev
+Privacy policy URL: https://probeharbor.dev/privacy  
+Terms: https://probeharbor.dev/terms  
+Support / contact: https://probeharbor.dev/contact  
+App website: https://probeharbor.dev
 
 ## App name (30 chars max)
 
-ThermalTrace
+ProbeHarbor
 
 ## Short description (80 chars max)
 
-Monitor probe temperatures and freeze alerts from your ThermalTrace account.
+Monitor probe temperatures and freeze alerts from your ProbeHarbor account.
 
 ## Full description
 
-ThermalTrace is the Android companion for thermaltrace.dev. Sign in with your existing account to view live probe readings, history, alerts, devices, and household settings — the same account data as the web app.
+ProbeHarbor is the Android companion for probeharbor.dev. Sign in with your existing account to view live probe readings, history, alerts, devices, and household settings — the same account data as the web app.
 
-The phone does not collect temperature itself. Sensors stay on your ESP/home hardware; this app talks to ThermalTrace over HTTPS.
+The phone does not collect temperature itself. Sensors stay on your ESP/home hardware; this app talks to ProbeHarbor over HTTPS.
 
 Features:
 • Live home readings with space filters and auto-refresh
@@ -32,9 +32,9 @@ Features:
 • Household members and invites
 • Optional push notifications (Pro) via Firebase Cloud Messaging
 
-For the full Overview Status strip (freeze hours, probe spread, indoor−outdoor ΔT) and Insights cards (doors, power, air quality, RSSI), open the web Overview at https://thermaltrace.dev/dashboard — live probe cards on the web are at https://thermaltrace.dev/dashboard/live. Charts on Overview/History can overlay humidity and dew point.
+For the full Overview Status strip (freeze hours, probe spread, indoor−outdoor ΔT) and Insights cards (doors, power, air quality, RSSI), open the web Overview at https://probeharbor.dev/dashboard — live probe cards on the web are at https://probeharbor.dev/dashboard/live. Charts on Overview/History can overlay humidity and dew point.
 
-Account required. Create or manage your account at https://thermaltrace.dev
+Account required. Create or manage your account at https://probeharbor.dev
 
 Delete your account anytime: sign in on the web → Dashboard → Settings → Delete account.
 
@@ -49,8 +49,8 @@ temperature, garage, workshop, attic, freeze, humidity, IoT, ESP32, alerts, moni
 ## Contact
 
 Email: use the same address you verify in Play Console  
-Website: https://thermaltrace.dev  
-Privacy: https://thermaltrace.dev/privacy
+Website: https://probeharbor.dev  
+Privacy: https://probeharbor.dev/privacy
 
 ## Graphics (in play/assets/)
 
