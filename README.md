@@ -5,8 +5,8 @@ Native Android client for [probeharbor.dev](https://probeharbor.dev). The phone 
 ## Stack
 
 - Kotlin, Jetpack Compose, Material 3
-- Supabase Auth (same project as the web app)
-- OkHttp cookie jar → `sb-access-token` / `sb-refresh-token` for dashboard APIs
+- Sign-in on probeharbor.dev in the browser, handed back to the app (no auth SDK in the app)
+- OkHttp cookie jar → the site's session cookie for dashboard APIs (`sb-access-token` / `sb-refresh-token` while the site runs on Supabase, the Better Auth session cookie after its move)
 - Retrofit + kotlinx.serialization → `GET /api/home/readings`
 
 ## Setup
@@ -16,12 +16,8 @@ Native Android client for [probeharbor.dev](https://probeharbor.dev). The phone 
 
 ```properties
 sdk.dir=/path/to/Android/Sdk
-supabase.url=https://YOUR_PROJECT.supabase.co
-supabase.anonKey=YOUR_PUBLISHABLE_OR_ANON_KEY
 thermaltrace.baseUrl=https://probeharbor.dev
 ```
-
-Use the **anon / publishable** key only — never the service role key.
 
 3. **Gradle JDK:** Android Studio’s bundled JBR may be Java 25, which is too new for Gradle 8.11. In **Settings → Build, Execution, Deployment → Build Tools → Gradle → Gradle JDK**, pick **17** (or `/usr/lib/jvm/java-17-openjdk` on Linux). Then Sync.
 4. Run on an emulator or device.
@@ -35,8 +31,8 @@ export JAVA_HOME=/usr/lib/jvm/java-17-openjdk   # Linux; use a JDK 17–23 insta
 
 ## How auth works
 
-1. Email/password via Supabase (`signInWithPassword`).
-2. Access + refresh tokens are stored locally and attached as cookies on `probeharbor.dev` requests (same contract as the web dashboard).
+1. Every way in opens probeharbor.dev in the browser: email + password (`/api/auth/companion/start?client=android`), Google / GitHub / Discord (`/api/auth/mobile/start`), and any two-factor step. Create account and forgot password open `/register` and `/forgot-password`.
+2. The site sends the browser to `https://probeharbor.dev/app/oauth?exchange=…` (App Link); the app swaps that one-time code at `POST /api/auth/mobile/exchange`. If the response has `session_cookie_name` (the site runs on Better Auth), the token is a signed session sent as that one cookie; otherwise they're Supabase tokens sent as `sb-access-token` / `sb-refresh-token`, which the site refreshes through Set-Cookie. Sign out calls `POST /api/auth/signout`.
 3. Home: `GET /api/home/readings?save=0` plus heating/condensation insights and **time-to-freeze** from `GET /api/user/home-insights`
 4. History: `GET /api/user/history` and Pro claims pack download via `GET /api/claims/pack`
 5. Settings load: `GET /api/user/export` (preferences + alert settings + entitlements)
@@ -49,7 +45,7 @@ export JAVA_HOME=/usr/lib/jvm/java-17-openjdk   # Linux; use a JDK 17–23 insta
 
 ```
 app/src/main/java/dev/thermaltrace/android/
-  data/auth/       Session store + Supabase sign-in
+  data/auth/       Session store + browser sign-in hand-off
   data/api/        Cookie jar, Retrofit, readings + settings + share + claims
   data/insights/   Heating / condensation insight helpers (parity with web)
   data/model/      JSON models

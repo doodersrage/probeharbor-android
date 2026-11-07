@@ -173,6 +173,12 @@ data class MobileExchangeResponse(
     val ok: Boolean = false,
     @SerialName("access_token") val accessToken: String? = null,
     @SerialName("refresh_token") val refreshToken: String? = null,
+    /**
+     * Set once the site signs in with Better Auth (after its move off
+     * Supabase): the token is then a signed session, sent as this cookie.
+     * Absent while the site still uses Supabase.
+     */
+    @SerialName("session_cookie_name") val sessionCookieName: String? = null,
     val error: String? = null,
 )
 

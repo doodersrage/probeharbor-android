@@ -8,11 +8,16 @@ import kotlinx.coroutines.runBlocking
 import okhttp3.Cookie
 import okhttp3.CookieJar
 import okhttp3.HttpUrl
+import java.net.URLEncoder
 
 /**
- * Mirrors the web dashboard session: ThermalTrace validates
- * `sb-access-token` + `sb-refresh-token` cookies (not Bearer JWT).
- * `sb-mfa-required=0` is required after YubiKey OTP (AAL stays aal1).
+ * Mirrors the web dashboard session.
+ * - Supabase (until the site moves): `sb-access-token` + `sb-refresh-token`
+ *   cookies; the site refreshes them through Set-Cookie, saved here.
+ *   `sb-mfa-required=0` is required after YubiKey OTP (AAL stays aal1).
+ * - Better Auth (after the move): one signed session value, sent as the
+ *   cookie the sign-in hand-off named (`sessionCookieName`). It doesn't
+ *   rotate; the site extends it while it's used.
  */
 class SessionCookieJar(
     private val baseHost: String,
@@ -41,6 +46,8 @@ class SessionCookieJar(
 
     override fun saveFromResponse(url: HttpUrl, cookies: List<Cookie>) {
         if (!url.host.endsWith(baseHost)) return
+        // Better Auth session: nothing to pick up (sign-out clears it explicitly).
+        if ((cachedTokens ?: runBlocking { sessionStore.current() })?.sessionCookieName != null) return
         val kept = memoryCookies.associateBy { it.name }.toMutableMap()
         for (cookie in cookies) {
             if (cookie.name in SESSION_COOKIE_NAMES) {
@@ -84,6 +91,12 @@ class SessionCookieJar(
     }
 
     private fun applyTokens(tokens: SessionTokens) {
+        val betterAuthCookie = tokens.sessionCookieName
+        if (betterAuthCookie != null) {
+            // Signed value has + / = : send it encoded, as browsers do.
+            memoryCookies = listOf(buildCookie(betterAuthCookie, URLEncoder.encode(tokens.accessToken, "UTF-8")))
+            return
+        }
         val cookies = mutableListOf(
             buildCookie(ACCESS_COOKIE, tokens.accessToken),
             buildCookie(REFRESH_COOKIE, tokens.refreshToken),

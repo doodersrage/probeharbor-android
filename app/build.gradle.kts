@@ -35,13 +35,11 @@ android {
         applicationId = "dev.probeharbor.android"
         minSdk = 26
         targetSdk = 36
-        versionCode = 4
-        versionName = "1.2.2"
+        versionCode = 5
+        versionName = "1.3.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
-        buildConfigField("String", "SUPABASE_URL", "\"${localProp("supabase.url")}\"")
-        buildConfigField("String", "SUPABASE_ANON_KEY", "\"${localProp("supabase.anonKey")}\"")
         buildConfigField(
             "String",
             "THERMALTRACE_BASE_URL",
@@ -141,12 +139,6 @@ dependencies {
     implementation("com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:1.0.0")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.3")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.9.0")
-
-    val supabaseBom = platform("io.github.jan-tennert.supabase:bom:3.0.3")
-    implementation(supabaseBom)
-    implementation("io.github.jan-tennert.supabase:auth-kt")
-    implementation(platform("io.ktor:ktor-bom:3.0.3"))
-    implementation("io.ktor:ktor-client-android")
 
     implementation(platform("com.google.firebase:firebase-bom:33.7.0"))
     implementation("com.google.firebase:firebase-messaging")

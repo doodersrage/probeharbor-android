@@ -110,8 +110,6 @@ class AppContainer(context: Context) {
     )
 
     val authRepository = AuthRepository(
-        supabaseUrl = BuildConfig.SUPABASE_URL,
-        supabaseAnonKey = BuildConfig.SUPABASE_ANON_KEY,
         sessionStore = sessionStore,
         cookieJar = cookieJar,
         pushRegistrar = pushRegistrar,

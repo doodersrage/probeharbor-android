@@ -3,10 +3,6 @@
 
 sdk.dir=/path/to/Android/Sdk
 
-# Same Supabase project as thermaltrace.dev (publishable / anon key only — never service role)
-supabase.url=https://YOUR_PROJECT.supabase.co
-supabase.anonKey=YOUR_SUPABASE_ANON_OR_PUBLISHABLE_KEY
-
 # API host the app talks to (no on-device sensing)
 thermaltrace.baseUrl=https://thermaltrace.dev
 

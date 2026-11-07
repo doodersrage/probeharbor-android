@@ -102,6 +102,10 @@ interface ThermalTraceApi {
         @Body body: RequestBody,
     ): Response<MobileExchangeResponse>
 
+    /** Ends the session on the site (cookies attached by SessionCookieJar). */
+    @POST("api/auth/signout")
+    suspend fun signOut(): Response<okhttp3.ResponseBody>
+
     @Headers("Accept: application/json", "Content-Type: application/json")
     @POST("api/auth/mfa-verify")
     suspend fun verifyMfa(
